@@ -19,6 +19,7 @@ const Image = (props) => {
                 type="file"
                 accept="image/*"
                 onChange={(e) => FileUpload(e)}
+                autoComplete="off"
             />
         </div>
     );

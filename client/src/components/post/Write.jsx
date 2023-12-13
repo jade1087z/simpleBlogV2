@@ -73,6 +73,7 @@ const Write = () => {
                                         setContent(e.currentTarget.value);
                                     }}
                                     style={{ width: "590px" }}
+                                    autoComplete="off"
                                 ></textarea>
                                 <Image setImage={setImage} />
                             </div>

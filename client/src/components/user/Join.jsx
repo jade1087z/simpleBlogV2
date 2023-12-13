@@ -14,7 +14,6 @@ const Join = () => {
     const joinFunc = async (e) => {
         setFlag(true);
         e.preventDefault();
-
         if (!(youName && youEmail && youPass && youPassCheck)) {
             return alert("모든 항목을 채워야 회원가입이 가능합니다.");
         }
@@ -23,7 +22,6 @@ const Join = () => {
             return alert("비밀번호가 다르네요");
         }
 
-        // 개인정보 --> 파이어베이스에 전달
         let createdUser = await firebase
             .auth()
             .createUserWithEmailAndPassword(youEmail, youPass);
@@ -34,50 +32,50 @@ const Join = () => {
         console.log(createdUser);
         console.log(createdUser.user);
 
-        // 회원가입한 데이터를 몽고디비로 전달
+        console.log(createdUser);
+        console.log(createdUser.user);
+
         let body = {
-            email: createdUser.user.multiFactor.user.email,
-            displayName: createdUser.user.multiFactor.user.displayName,
-            uid: createdUser.user.multiFactor.user.uid,
+            email: createdUser.user.multiFactor.email,
+            displayName: createdUser.user.multiFactor.displayName,
+            uid: createdUser.user.multiFactor.uid,
         };
-        axios.post("/api/user/join", body).then((response) => {
+
+        axios.post("/api/user/join", body).then((res) => {
             setFlag(false);
-            if (response.data.success) {
-                // 회원가입 성공
-                alert("회원가입에 성공하였습니다!!");
+            if (res.data.success) {
+                alert("회원가입에 성공하였습니다.!!");
                 navigate("/login");
             } else {
                 return alert("회원가입이 실패하였습니다.");
             }
         });
-
-        // let createdUser = await firebase
-        //     .auth()
-        //     .createUserWithEmailAndPassword(youEmail, youPass)
-        //     .then((userCredential) => {
-        //         // Signed in
-        //         var user = userCredential.user;
-        //         createdUser.user.updateProfile({
-        //             displayName: youName,
-        //         });
-
-        //         console.log(user);
-        //         console.log(createdUser);
-        //         console.log(createdUser.user);
-        //     })
-        //     .catch((error) => {
-        //         if (error.code == "auth/email-already-in-use") {
-        //             alert("The email address is already in use");
-        //         } else if (error.code == "auth/invalid-email") {
-        //             alert("The email address is not valid.");
-        //         } else if (error.code == "auth/operation-not-allowed") {
-        //             alert("Operation not allowed.");
-        //         } else if (error.code == "auth/weak-password") {
-        //             alert("The password is too weak.");
-        //         }
-        //     });
     };
+    // let createdUser = await firebase
+    //     .auth()
+    //     .createUserWithEmailAndPassword(youEmail, youPass)
+    //     .then((userCredential) => {
+    //         // Signed in
+    //         var user = userCredential.user;
+    //         createdUser.user.updateProfile({
+    //             displayName: youName,
+    //         });
 
+    //         console.log(user);
+    //         console.log(createdUser);
+    //         console.log(createdUser.user);
+    //     })
+    //     .catch((error) => {
+    //         if (error.code == "auth/email-already-in-use") {
+    //             alert("The email address is already in use");
+    //         } else if (error.code == "auth/invalid-email") {
+    //             alert("The email address is not valid.");
+    //         } else if (error.code == "auth/operation-not-allowed") {
+    //             alert("Operation not allowed.");
+    //         } else if (error.code == "auth/weak-password") {
+    //             alert("The password is too weak.");
+    //         }
+    //     });
     return (
         <section id="login" className="join">
             <div className="login__inner">
@@ -103,6 +101,7 @@ const Join = () => {
                                     onChange={(e) =>
                                         setYouEmail(e.currentTarget.value)
                                     }
+                                    autoComplete="off"
                                     required
                                 />
                             </div>
@@ -123,6 +122,7 @@ const Join = () => {
                                     onChange={(e) =>
                                         setYouName(e.currentTarget.value)
                                     }
+                                    autoComplete="off"
                                     required
                                 />
                             </div>
@@ -144,7 +144,7 @@ const Join = () => {
                                     onChange={(e) =>
                                         setYouPass(e.currentTarget.value)
                                     }
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     required
                                 />
                             </div>
@@ -166,7 +166,7 @@ const Join = () => {
                                     onChange={(e) =>
                                         setYouPassCheck(e.currentTarget.value)
                                     }
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     required
                                 />
                             </div>

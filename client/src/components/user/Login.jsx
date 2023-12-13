@@ -9,8 +9,9 @@ const Login = () => {
 
     const LoginFunc = async (e) => {
         e.preventDefault();
+
         if (!(email && password)) {
-            return alert("모든 값을 채워주세요!");
+            return alert("모든 값을 채워주세요");
         }
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -52,6 +53,7 @@ const Login = () => {
                                     onChange={(e) => {
                                         setEmail(e.currentTarget.value);
                                     }}
+                                    autoComplete="off"
                                     required
                                 />
                             </div>
@@ -68,7 +70,7 @@ const Login = () => {
                                     name="youPass"
                                     placeholder="password"
                                     className="input_style"
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     onChange={(e) => {
                                         setPassword(e.currentTarget.value);
                                     }}
