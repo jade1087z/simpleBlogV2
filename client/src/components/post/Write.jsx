@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Image from "./Image";
+// import Image from "./Image";
 import { useNavigate } from "react-router-dom";
+import Image from "./Image";
 const Write = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -73,10 +74,8 @@ const Write = () => {
                                     }}
                                     style={{ width: "590px" }}
                                 ></textarea>
+                                <Image setImage={setImage} />
                             </div>
-
-                            <Image setImage={setImage} />
-
                             <button
                                 type="submit"
                                 className="post__btn"

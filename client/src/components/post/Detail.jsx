@@ -50,6 +50,7 @@ const Detail = () => {
                     {postInfo.content}
                     {postInfo.image && (
                         <img src={postInfo.image} alt={postInfo.title} />
+                        // <img src={`http://localhost:5050/${postInfo.image}`} />
                     )}
                 </div>
 
