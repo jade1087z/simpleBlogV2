@@ -1,0 +1,43 @@
+body {
+}
+/* 스크롤바 레슨과 두께 변경 */
+::-webkit-scrollbar {
+    width: 1px;
+}
+main {
+    min-height: 80vh;
+}
+// 각 섹션 공통 요소
+section {
+    padding: 40px;
+
+    @media (max-width: 800px) {
+        padding: 20px;
+    }
+}
+
+/* 스크롤바 막대 색상 및 모양 변경 */
+::-webkit-scrollbar-thumb {
+    background: white; /* 스크롤바 막대 색상 */
+    border: 1px solid white; /* 스크롤바 막대 테두리 설정 */
+}
+
+/* 스크롤바 막대에 호버 효과 적용 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: white;
+}
+
+/* 스크롤바 뒷 배경 색상 변경 */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+//channelPageClass 로딩 소스
+.isLoading {
+    opacity: 0;
+    transition: opacity 0.7s;
+}
+.isLoaded {
+    opacity: 1;
+    transition: opacity 0.7s;
+}

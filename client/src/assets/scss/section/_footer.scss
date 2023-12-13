@@ -1,0 +1,22 @@
+#footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--black600);
+    padding: 10px 10px 10px 250px;
+    width: calc(100% - 260px);
+    text-align: center;
+
+    a {
+        color: var(--black300);
+        padding: 10px;
+        display: inline-block;
+        font-size: 12px;
+
+        &:hover {
+            text-decoration: underline;
+            text-underline-position: under;
+            text-decoration-color: blueviolet;
+            color: blueviolet;
+        }
+    }
+}

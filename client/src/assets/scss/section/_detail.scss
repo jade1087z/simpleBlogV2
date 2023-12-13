@@ -1,0 +1,53 @@
+.detail__wrap {
+    width: 800px;
+    margin: 20px auto;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(243, 240, 255);
+    background: rgb(247, 246, 255);
+
+    .detail__title {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border: 1px solid rgb(225, 231, 245);
+        text-align: center;
+        h3 {
+            color: rgb(65, 104, 194);
+            font-weight: bold;
+        }
+
+        .auth {
+            font-size: 16px;
+        }
+    }
+    .detail__content {
+        text-align: center;
+        font-size: 15px;
+        color: #797474;
+        border: 1px solid rgb(225, 231, 245);
+        padding: 150px;
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+    .btn {
+        display: flex;
+        button {
+            width: 50%;
+            display: inline-block;
+            text-align: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            outline: none;
+            border: 1px solid rgb(225, 231, 245);
+            background: rgb(236, 237, 248);
+            color: rgb(211, 64, 153);
+
+            &:hover {
+                background: rgb(124, 212, 157);
+                color: rgb(256, 254, 245);
+            }
+        }
+    }
+}
